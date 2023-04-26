@@ -1,0 +1,15 @@
+---
+- name: Create a file on a remote system
+  hosts: all
+  become: true
+  vars:
+    file_path: /tmp/example.txt
+    file_contents: |
+      This is an example file.
+      It has multiple lines of texts
+  tasks:
+    - name: Create the file
+      copy:
+        content: "{{ file_contents }}"
+        dest: "{{ file_path }}"
+
