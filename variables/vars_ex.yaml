@@ -1,0 +1,8 @@
+---
+my_var_1: "value1"
+my_var_2: "value2"
+my_list:
+  - "item1"
+  - "item2"
+  - "item3"
+

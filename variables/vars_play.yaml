@@ -1,0 +1,10 @@
+---
+- name: Example playbook with  variables
+  hosts: all
+  vars:
+    my_var: "Hello, world!"
+  tasks:
+    - name: Print variable
+      debug:
+        var: my_var
+

@@ -1,0 +1,15 @@
+---
+- name: Example playbook with dictionary variable
+  hosts: all
+  vars:
+    mydict:
+      key1: value1
+      key2: value2
+      key3: value3
+  tasks:
+    - name: Print dictionary
+      debug:
+        var: mydict
+    - name: Print value of key2
+      debug:
+        var: mydict['key2']

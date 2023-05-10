@@ -1,0 +1,10 @@
+---
+- name: Example playbook with built-in variables
+  hosts: all
+  tasks:
+    - name: Display ansible facts
+      debug:
+        var: ansible_distribution
+        var: ansible_os_family
+        var: ansible_ssh_port
+

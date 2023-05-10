@@ -1,0 +1,15 @@
+- name: Copy file if not exists
+  hosts: myhost
+  become: true
+  tasks:
+    - name: Check if file exists
+      stat:
+        path: /path/to/destination/file
+      register: file_stat
+
+    - name: Copy file
+      copy:
+        src: /path/to/source/file
+        dest: /path/to/destination/file
+      when: not file_stat.stat.exists
+

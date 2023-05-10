@@ -1,0 +1,17 @@
+---
+- name: Example playbook with list variable
+  hosts: all
+  vars:
+    my_list_var:
+      - item1
+      - item2
+      - item3
+  tasks:
+    - name: Print list variable
+      debug:
+        msg: "{{ my_list_var }}"
+    - name: Iterate over list
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ my_list_var }}"
+

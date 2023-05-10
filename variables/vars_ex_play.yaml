@@ -1,0 +1,11 @@
+---
+- name: Example playbook with vars_files
+  hosts: all
+  vars_files:
+    - vars_ex.yaml
+  tasks:
+    - name: Print variable values
+      debug:
+        var: item
+      loop: "{{ my_list }}"
+

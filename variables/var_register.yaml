@@ -1,0 +1,13 @@
+---
+- name: Example playbook with register and copy
+  hosts: all
+  tasks:
+    - name: Get list of files
+      shell: ls -larth
+      register: file_list
+
+    - name: Save file list to a file
+      copy:
+        content: "{{ file_list.stdout }}"
+        dest: "/tmp/file_list.txt"
+

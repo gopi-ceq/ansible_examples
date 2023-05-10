@@ -1,0 +1,23 @@
+---
+- name: Install Nginx and copy index file
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Nginx
+      yum:
+        name: nginx
+        state: present
+      
+    - name: Copy index file
+      copy:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+      notify: restart nginx
+  
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+
