@@ -1,0 +1,14 @@
+---
+- name: Example Playbook
+  hosts: all
+  tasks:
+    - name: Task 1
+      command: /path/to/some_command
+      failed_when: false
+      register: task_result
+      fail_msg: "Custom failure message: Task 1 failed."
+
+    - name: Task 2
+      debug:
+        msg: "Task 1 executed successfully."
+      when: task_result is succeeded

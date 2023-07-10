@@ -1,0 +1,10 @@
+---
+- name: Example Playbook
+  hosts: all
+  ignore_unreachable: yes
+  tasks:
+    - name: Task 1
+      command: /path/to/some_command
+
+    - name: Task 2
+      command: /path/to/another_command

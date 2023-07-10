@@ -1,0 +1,15 @@
+---
+- name: Example Playbook
+  hosts: all
+  tasks:
+    - name: Task 1
+      command: /path/to/failing_command
+      ignore_errors: yes
+      register: task_result
+
+    - name: Handle Failure
+      debug:
+        msg: "The task failed, but we are handling it gracefully."
+      rescue:
+        - debug:
+            msg: "An error occurred during Task 1. Handle the failure here."

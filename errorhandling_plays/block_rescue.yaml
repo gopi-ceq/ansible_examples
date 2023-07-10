@@ -1,0 +1,17 @@
+---
+- name: Example Playbook
+  hosts: all
+  tasks:
+    - name: Task 1
+      block:
+        - name: Task 1.1
+          command: /path/to/first_command
+        - name: Task 1.2
+          command: /path/to/second_command
+      rescue:
+        - name: Handle Failure
+          debug:
+            msg: "Error occurred during Task 1. Handle the failure here."
+
+    - name: Task 2
+      command: /path/to/another_command

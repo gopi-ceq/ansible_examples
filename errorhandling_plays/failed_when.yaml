@@ -1,0 +1,12 @@
+---
+- name: Example Playbook
+  hosts: all
+  tasks:
+    - name: Check File Existence
+      stat:
+        path: /path/to/some/file
+      register: file_stat
+      failed_when: file_stat.stat.exists == false
+
+    - name: Task 2
+      command: /path/to/another_command

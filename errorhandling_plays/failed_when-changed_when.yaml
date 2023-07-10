@@ -1,0 +1,19 @@
+---
+- name: Example Playbook
+  hosts: all
+  tasks:
+    - name: Task 1
+      command: /path/to/some_command
+      register: task_result
+      failed_when: task_result.rc != 0
+      changed_when: task_result.stdout is changed
+
+    - name: Task 2
+      debug:
+        msg: "Task 1 executed successfully and resulted in a change."
+      when: task_result.changed
+
+    - name: Task 3
+      debug:
+        msg: "Task 1 failed or did not result in a change."
+      when: task_result.failed or (not task_result.changed)
